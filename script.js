@@ -4,11 +4,11 @@ const doubleMoneyButton = document.getElementById('doubleMoney');
 const showMillionairesButton = document.getElementById('showMillionaires');
 const sortButton = document.getElementById('sort');
 const calculateWealthButton = document.getElementById('calculateWealth');
-const data = [];
-randomUser();
-randomUser();
-randomUser();
-function randomuser(){
+let data = [];
+randomuser();
+randomuser();
+randomuser();
+async function randomuser(){
 const ranues = await fetch('https://randomuser.me/api');
 const data = await ranues.json();
 const user = data.results[0];
@@ -32,7 +32,6 @@ function sortByRichest() {
 }
 function showMillionaires() {
     data = data.filter(user => user.money > 1000000);
-  
     updateDOM();
   }
   function calculateWealth() {
@@ -44,4 +43,26 @@ function showMillionaires() {
     )}</strong></h3>`;
     main.appendChild(wealthEl);
   }
-  
+function addData(obj) {
+  data.push(obj);
+  updateDOM();
+}
+function updateDOM(providedData = data) {
+  main.innerHTML = '<h2><strong>Person</strong> Wealth</h2>';
+  providedData.forEach(item => {
+    const element = document.createElement('div');
+    element.classList.add('person');
+    element.innerHTML = `<strong>${item.name}</strong> ${formatMoney(
+      item.money
+    )}`;
+    main.appendChild(element);
+  });
+}
+function formatMoney(number) {
+  return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+}
+addUserButton.addEventListener('click', randomuser);
+doubleMoneyButton.addEventListener('click', doubleMoney);
+sortButton.addEventListener('click', sortByRichest);
+showMillionairesButton.addEventListener('click', showMillionaires);
+calculateWealthButton.addEventListener('click', calculateWealth);

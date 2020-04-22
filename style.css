@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   background: #f4f4f4;
   font-family: Arial, Helvetica, sans-serif;
@@ -11,7 +10,6 @@ body {
   min-height: 100vh;
   margin: 0;
 }
-
 .main {
   display: flex;
   padding: 20px;
@@ -19,13 +17,11 @@ body {
   max-width: 100%;
   width: 800px;
 }
-
 aside {
   padding: 10px 20px;
   width: 250px;
   border-right: 1px solid #111;
 }
-
 button {
   cursor: pointer;
   background-color: #fff;
@@ -38,12 +34,11 @@ button {
   font-weight: bold;
   font-size: 14px;
 }
-
-.mainMain {
+main {
   flex: 1;
-  padding: 10px 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
 }
-
 h2 {
   border-bottom: 1px solid #111;
   padding-bottom: 5px;
@@ -52,7 +47,6 @@ h2 {
   font-weight: 300;
   margin: 0 0 20px;
 }
-
 h3 {
   background-color: #fff;
   border-bottom: 1px solid #111;
@@ -62,10 +56,9 @@ h3 {
   font-weight: 300;
   margin: 20px 0 0;
 }
-
-strong {
+.person {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 10px 10px 10px;
 }
